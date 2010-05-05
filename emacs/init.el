@@ -11,6 +11,11 @@
   ;; If there is more than one, they won't work right.
  )
 
+;; Plugins
+(add-to-list 'load-path "~/.emacs.d/myemacs/plugins/yasnippet-0.6.1c")
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/myemacs/plugins/yasnippet-0.6.1c/snippets")
 
 
 ;; Clear out whitespace
