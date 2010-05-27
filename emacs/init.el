@@ -21,9 +21,11 @@
 ;; Clear out whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+
+;; Custom settings
 (defun my-c-settings ()
   (setq c-basic-offset 3)
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode nil))
 
 (defun my-perl-settings ()
   (setq perl-indent-level 3))
@@ -44,8 +46,13 @@
 (setq show-paren-mode t)
 (setq blink-matching-paren t)
 
-;;(setq tab-width 3 ;; instead of the default 4
-;;      indent-tab-mode nil) ;; spaces instead of tabs
+;; My Global settings
+(setq-default tab-stop-list '(3 6 9 12 15 18))
+(setq-default tab-width 3)
+(setq-default indent-tabs-mode nil)
+;; Enable Paren highlighting
+(setq show-paren-mode t)
+(setq blink-matching-paren t)
 
 ;; Fonts
 ;; ============
@@ -90,6 +97,6 @@
 		("\\.Xenvironment$" . xrdb-mode)
 		("\\.Xresources$"   . xrdb-mode)
 		("*.\\.ad$"         . xrdb-mode)
-      ("\\.[eE]?[pP][sS]$" . ps-mode)
+		("\\.[eE]?[pP][sS]$" . ps-mode)
 		) auto-mode-alist))
 
