@@ -50,6 +50,7 @@
 (setq-default tab-stop-list '(3 6 9 12 15 18))
 (setq-default tab-width 3)
 (setq-default indent-tabs-mode nil)
+
 ;; Enable Paren highlighting
 (setq show-paren-mode t)
 (setq blink-matching-paren t)

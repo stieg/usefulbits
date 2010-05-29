@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: pk-f1
+# key: pk-f1
+# --
+/**
+ * ${1:eat_babies}:
+ * @$11: ($12) ${13:parm1 Description}
+ * @Returns: $2
+ *
+ * ${3:This Method eats babies}
+ *
+ **/
+${4:void}
+$1 (${10:gint} ${11:parm1}) /* ${12:IN/OUT} */
+{
+$0
+} /* $1 */
+
