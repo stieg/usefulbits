@@ -10,3 +10,5 @@
   name=Andrew Stiegmann (stieg)
   email=andrew.stiegmann@gmail.com
 
+[core]
+  excludesfile=/home/andrew/dev/usefulbits/git/gitignore

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: glib-guard
+# key: glib-guard
+# --
+
+#if !defined (__${1:MY_PROJECT}_INSIDE__) && !defined ($1_COMPILATION)
+#error "Only <${2:my-project}/$2.h> can be included directly."
+#endif
+
+$0

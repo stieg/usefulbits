@@ -30,8 +30,14 @@
 (defun my-perl-settings ()
   (setq perl-indent-level 3))
 
+;; Set the standards for Makefiles
+(defun my-makefile-settings ()
+  (setq-default tab-width 8)
+  (setq-default tab-stop-list '(8 16 24 32 40)))
+
 (add-hook 'c-mode-hook 'my-c-settings)
 (add-hook 'perl-mode-hook 'my-perl-settings)
+(add-hook 'makefile-mode-hook 'my-makefile-settings)
 
 ;;
 ;; Special key bindings..
@@ -42,22 +48,23 @@
 ;; Fix the annoying yes-or-no to be y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; Enable Paren highlighting
-(setq show-paren-mode t)
-(setq blink-matching-paren t)
-
 ;; My Global settings
-(setq-default tab-stop-list '(3 6 9 12 15 18))
+(setq-default tab-stop-list '(3 6 9 12 15))
 (setq-default tab-width 3)
 (setq-default indent-tabs-mode nil)
+(setq-default line-number-mode t)
+(setq-default column-number-mode t)
 
-;; Enable Paren highlighting
+;;;; Enable Paren highlighting
 (setq show-paren-mode t)
 (setq blink-matching-paren t)
 
 ;; Fonts
 ;; ============
 ;;
+;;;; The next command sets the fontsize.  Size is 1/10 of value.
+(set-face-attribute 'default nil :height 70)
+
 (setq font-lock-maximum-decoration t)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-font-lock)
 (add-hook 'cc-mode-hook 'turn-on-font-lock)
@@ -90,7 +97,7 @@
 		("\\.pl$"      . perl-mode)
 		("\\.sql$"     . c-mode)
 		("\\.sh$"      . shell-script-mode)
-		("\\.mak.?$"     . makefile-mode)
+		("\\.mak.?$"   . makefile-mode)
 		("\\.GNU$"     . makefile-mode)
 		("makefile$"   . makefile-mode)
 		("Imakefile$"  . makefile-mode)

@@ -1,0 +1,10 @@
+# name: glib-once
+# key: glib-once
+# --
+
+static gsize once_init = FALSE;
+
+if (g_once_init_enter(&once_init)) {
+   $0
+   g_once_init_leave(&once_init, TRUE);
+}
