@@ -9,4 +9,7 @@
 # This assumes you have a put a symlink to bash-init in your home directory
 # Modify this as you see fit.
 this_dir=~/.bash-init
-. $this_dir/apt-aliases
+
+
+# Useful Aliases
+. $this_dir/aliases
