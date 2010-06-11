@@ -1,3 +1,11 @@
+#!/bin/bash
+
 # Useful Apt Aliases
-alias ainst='sudo apt-get install'
-alias asch='apt-cache search'
+if which apt-get >/dev/null; then
+    alias agis='sudo -i apt-get install'
+    alias agud='sudo -i apt-get update'
+fi
+
+if which apt-cache >/dev/null; then
+    alias acs='apt-cache search'
+fi
