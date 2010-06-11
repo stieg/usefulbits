@@ -1,0 +1,3 @@
+# Useful Apt Aliases
+alias ainst='sudo apt-get install'
+alias asch='apt-cache search'

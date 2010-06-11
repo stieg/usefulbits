@@ -16,7 +16,7 @@
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/myemacs/plugins/yasnippet-0.6.1c/snippets")
-
+(setq yas/root-directory '("~/emacs.d/myemacs/plugins/yasnippet-0.6.1c/snippets"))
 
 ;; Clear out whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -56,8 +56,8 @@
 (setq-default column-number-mode t)
 
 ;;;; Enable Paren highlighting
-(setq show-paren-mode t)
-(setq blink-matching-paren t)
+(show-paren-mode t)
+(setq-default blink-matching-paren t)
 
 ;; Fonts
 ;; ============

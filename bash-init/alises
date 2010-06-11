@@ -1,0 +1,4 @@
+#!/bin/bash
+# Find way to get location of this file
+this_dir=~/dev/usefulbits
+. $this_dir/apt-aliases

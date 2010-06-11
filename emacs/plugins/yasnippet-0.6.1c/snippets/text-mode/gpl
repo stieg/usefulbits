@@ -1,8 +1,9 @@
 # -*- mode: snippet -*-
-# name: pk-license
-# key: pk-license
+# name: gpl
+# key: gpl
 # --
-/* ${1:foo.c}
+/*
+ * ${1:foo.c}
  *
  * Copyright (C) 2010 ${2:Andrew Stiegmann} ${3:<andrew.stiegmann@gmail.com>}
  *
