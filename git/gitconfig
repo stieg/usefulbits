@@ -1,14 +1,16 @@
 [alias]
-  st = status
-  ci = commit
-  br = branch
-  co = checkout
-  df = diff
-  lg = log -p
+  st      = status
+  cm      = commit
+  b       = branch
+  co      = checkout
+  d       = diff
+  lg      = log -p
+  conb    = checkout -b
+  f       = fetch
 
 [user]
   name=Andrew Stiegmann (stieg)
   email=andrew.stiegmann@gmail.com
 
 [core]
-  excludesfile=/home/andrew/dev/usefulbits/git/gitignore
+  excludesfile=~/.git/gitignore
