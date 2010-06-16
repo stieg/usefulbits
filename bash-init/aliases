@@ -9,3 +9,13 @@ fi
 if which apt-cache >/dev/null; then
     alias acs='apt-cache search'
 fi
+
+if which p4 >/dev/null; then
+    alias p4ds='p4 describe'
+    alias p4op='p4 opened'
+    alias p4sm='p4 submit -c'
+    alias  p4s='p4 sync'
+    alias p4ed='p4 edit'
+    alias p4rv='p4 revert'
+    alias  p4c='p4 change'
+fi
