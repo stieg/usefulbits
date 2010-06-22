@@ -2,12 +2,17 @@
 
 # Useful Apt Aliases
 if which apt-get >/dev/null; then
-    alias agis='sudo -i apt-get install'
-    alias agud='sudo -i apt-get update'
+    alias   agis='sudo -i apt-get install'
+    alias   agud='sudo -i apt-get update'
+    alias agatrm='sudo -i apt-get autoremove'
 fi
 
 if which apt-cache >/dev/null; then
-    alias acs='apt-cache search'
+    alias   acs='apt-cache search'
+    alias  acsh='apt-cache show'
+    alias  acdp='apt-cache depends'
+    alias   aca='apt-cache add'
+    alias  acsp='apt-cache showpkg'
 fi
 
 if which p4 >/dev/null; then
@@ -18,4 +23,26 @@ if which p4 >/dev/null; then
     alias p4ed='p4 edit'
     alias p4rv='p4 revert'
     alias  p4c='p4 change'
+    alias p4ce='p4 client'
 fi
+
+# Check for the EMACS setting before setting color.  If in emacs, we don't
+# want the color, so we disable it here.
+if [ -z $EMACS ]; then
+    alias    ls='ls --color=auto'
+    alias  grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+else
+    for i in ls {,f,e}grep; do
+        unalias $i;
+    done
+fi
+
+# Some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias  l='ls -CF'
+
+# Add an aliases to resource the init
+alias sourceInit='. ~/.bashrc'
