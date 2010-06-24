@@ -1,12 +1,13 @@
 [alias]
   st      = status
   cm      = commit
-  b       = branch
+  br      = branch
   co      = checkout
-  d       = diff
-  lg      = log -p
+  di      = diff
+  lo      = log -p
+  co      = checkout
   conb    = checkout -b
-  f       = fetch
+  fe      = fetch
 
 [user]
   name=Andrew Stiegmann (stieg)
