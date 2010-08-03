@@ -12,11 +12,11 @@
  )
 
 ;; Plugins
-(add-to-list 'load-path "~/.emacs.d/myemacs/plugins/yasnippet-0.6.1c")
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/myemacs/plugins/yasnippet-0.6.1c/snippets")
-(setq yas/root-directory '("~/emacs.d/myemacs/plugins/yasnippet-0.6.1c/snippets"))
+(yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
+(setq yas/root-directory '("~/emacs.d/plugins/yasnippet-0.6.1c/snippets"))
 
 ;; Clear out whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

@@ -14,4 +14,4 @@
   email=andrew.stiegmann@gmail.com
 
 [core]
-  excludesfile=~/.git/gitignore
+  excludesfile=~/.gitignore
