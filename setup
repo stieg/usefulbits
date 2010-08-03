@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Get the full path to this script
+scriptPath=$(dirname $(readlink -f $0))
+
+bashDir=$scriptPath/bash_init
+emacsDir=$scriptPath/emacs
+gitDir=$scriptPath/git
+
+# bash
+bashFiles=`ls bash`
+for i in $bashFiles; do
+    ln -svi $bashDir/$i "$HOME/.$i"
+done
+
+
+# Git goodies
+gitFiles=`ls git`
+for i in $gitFiles; do
+    ln -svi $gitDir/$i "$HOME/.$i" 
+done
+
+# Emacs
+destEmacsDir="$HOME/.emacs.d"
+mkdir -p $destEmacsDir
+ln -svi $emacsDir/init.el "${destEmacsDir}/init.el"
+ln -svi $emacsDir/plugins "${destEmacsDir}/plugins"
