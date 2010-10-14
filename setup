@@ -3,7 +3,7 @@
 # Get the full path to this script
 scriptPath=$(dirname $(readlink -f $0))
 
-bashDir=$scriptPath/bash_init
+bashDir=$scriptPath/bash
 emacsDir=$scriptPath/emacs
 gitDir=$scriptPath/git
 
@@ -17,7 +17,7 @@ done
 # Git goodies
 gitFiles=`ls git`
 for i in $gitFiles; do
-    ln -svi $gitDir/$i "$HOME/.$i" 
+    ln -svi $gitDir/$i "$HOME/.$i"
 done
 
 # Emacs

@@ -66,3 +66,6 @@ fi
 
 # Add an aliases to resource the init
 alias sourceInit='. ~/.bashrc'
+
+# Also add an entry for our local BIN
+export PATH=$PATH:~/bin
