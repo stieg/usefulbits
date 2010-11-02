@@ -15,3 +15,8 @@
 
 [core]
   excludesfile=~/.gitignore
+
+[color]
+	status = auto
+	branch = auto
+	diff = auto

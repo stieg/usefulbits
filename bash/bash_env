@@ -1,0 +1,15 @@
+# Bash ENV settings
+
+chkExists () {
+   which $1 2>&1 >/dev/null
+}
+
+if chkExists emacs; then
+    EDITOR='emacs -nw'
+else if chkExists nano; then
+    EDITOR='nano'
+else
+    EDITOR='vim'
+fi
+fi
+
