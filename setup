@@ -5,6 +5,7 @@ scriptPath=$(dirname $(readlink -f $0))
 bashDir=$scriptPath/bash
 emacsDir=$scriptPath/emacs
 gitDir=$scriptPath/git
+screenDir=$scriptPath/screen
 
 # bash
 bashFiles=`ls $bashDir`
@@ -30,3 +31,9 @@ destEmacsDir="$HOME/.emacs.d"
 mkdir -p $destEmacsDir
 ln -svi $emacsDir/init.el "${destEmacsDir}/init.el"
 ln -svi $emacsDir/plugins "${destEmacsDir}/plugins"
+
+# Screen goodies
+screenFiles=`ls $screenDir`
+for i in $screenFiles; do
+    ln -svi $screenDir/$i "$HOME/.$i"
+done
