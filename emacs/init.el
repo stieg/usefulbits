@@ -42,7 +42,7 @@
 ;;
 ;; Special key bindings..
 ;;
-(global-set-key (kbd "C-z") 'shell)
+(global-set-key (kbd "C-z") 'term)
 (global-set-key (kbd "M-s k") 'kill-some-buffers)
 (global-set-key (kbd "M-s c") 'compile)
 (global-set-key (kbd "M-s g") 'find-grep)
