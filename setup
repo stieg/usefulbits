@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 # Get the full path to this script
 scriptPath=$(dirname $(readlink -f $0))
@@ -10,9 +11,10 @@ screenDir=$scriptPath/screen
 # bash
 bashFiles=`ls $bashDir`
 for i in $bashFiles; do
-   cat >> $HOME/.bashrc <<EOF
-# Stieg config...
+   grep -q "Stieg $i config" $HOME/.bashrc || \
+cat >> $HOME/.bashrc <<EOF
 
+# Stieg $i config...
 if [ -r $bashDir/$i ]; then
    . $bashDir/$i
 fi
@@ -23,17 +25,26 @@ done
 # Git goodies
 gitFiles=`ls $gitDir`
 for i in $gitFiles; do
-    ln -svi $gitDir/$i "$HOME/.$i"
+    test -L "$HOME/.$i" || ln -svi $gitDir/$i "$HOME/.$i"
 done
 
 # Emacs
 destEmacsDir="$HOME/.emacs.d"
 mkdir -p $destEmacsDir
-ln -svi $emacsDir/init.el "${destEmacsDir}/init.el"
-ln -svi $emacsDir/plugins "${destEmacsDir}/plugins"
+test -L  "${destEmacsDir}/plugins" || ln -svi $emacsDir/plugins "${destEmacsDir}/plugins"
+
+grep -q 'Stieg init.el settings' $HOME/.emacs.d/init.el || \
+cat >> $HOME/.emacs.d/init.el <<EOF
+
+;; Stieg init.el settings
+(add-to-list 'load-path "~/dev/usefulbits/emacs")
+(load "stieg.init.el") ;; Load up the init.el in the git file.
+
+EOF
 
 # Screen goodies
 screenFiles=`ls $screenDir`
+mkdir -p $screenDir
 for i in $screenFiles; do
-    ln -svi $screenDir/$i "$HOME/.$i"
+    test -L "$HOME/.$i" || ln -svi $screenDir/$i "$HOME/.$i"
 done
