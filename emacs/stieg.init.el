@@ -18,6 +18,11 @@
 (yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
 (setq yas/root-directory '("~/emacs.d/plugins/yasnippet-0.6.1c/snippets"))
 
+(add-to-list 'load-path "~/.emacs.d/plugins/git")
+(require 'git) ;; our git control system.
+(require 'git-blame) ;; our git control system.
+
+
 ;; Clear out whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -65,7 +70,7 @@
 ;; ============
 ;;
 ;;;; The next command sets the fontsize.  Size is 1/10 of value.
-(set-face-attribute 'default nil :height 70)
+;;(set-face-attribute 'default nil :height 70)
 
 (setq font-lock-maximum-decoration t)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-font-lock)
