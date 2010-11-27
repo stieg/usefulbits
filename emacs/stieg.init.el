@@ -10,17 +10,39 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
-
+;;
 ;; Plugins
+;;
+;;;;
+;;;; Yasnippet
+;;;;
 (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
 (setq yas/root-directory '("~/emacs.d/plugins/yasnippet-0.6.1c/snippets"))
 
+;;;;
+;;;; Git
+;;;;
 (add-to-list 'load-path "~/.emacs.d/plugins/git")
 (require 'git) ;; our git control system.
 (require 'git-blame) ;; our git control system.
+
+;;;;
+;;;; ERC (IRC for emacs)
+;;;;
+(require 'erc) ; ERC is included with emacs starting 22.3
+; freenode
+(global-set-key (kbd "M-s e f") (lambda () (interactive)
+                                (erc :server "irc.freenode.net"
+                                     :port "6667"
+                                     :nick "stieg"
+                                     :full-name "Andrew Stiegmann (andrew.stiegmann [at] gmail [dot] com")))
+(setq erc-autojoin-channels-alist "freenode.net #perfkit")
+; /freenode
+
+(setq erc-interpret-mirc-color t)
 
 
 ;; Clear out whitespace
