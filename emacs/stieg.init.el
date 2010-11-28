@@ -39,7 +39,7 @@
                                      :port "6667"
                                      :nick "stieg"
                                      :full-name "Andrew Stiegmann (andrew.stiegmann [at] gmail [dot] com")))
-(setq erc-autojoin-channels-alist "freenode.net #perfkit")
+(setq erc-autojoin-channels-alist '("freenode.net" "#perfkit"))
 ; /freenode
 
 (setq erc-interpret-mirc-color t)
