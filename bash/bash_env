@@ -13,3 +13,5 @@ else
 fi
 fi
 
+# Setup a local bin directory
+export PATH="$PATH:$HOME/bin"
