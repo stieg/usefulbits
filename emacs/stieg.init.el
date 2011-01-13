@@ -120,7 +120,7 @@
       ("\\.C$"              . c++-mode)
       ("\\.cc$"             . c++-mode)
       ("\\.c$"              . c-mode)
-      ("\\.h$"              . c++-mode)
+      ("\\.h$"              . c-mode)
       ("\\.i$"              . c++-mode)
       ("\\.ii$"             . c++-mode)
       ("\\.m$"              . objc-mode)
