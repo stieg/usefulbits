@@ -84,3 +84,7 @@ alias vmwgw='pkill -f vmwgw; ssh -fTN vmwgw'
 
 # Also add an entry for our local BIN
 export PATH=$PATH:~/bin
+
+# Pushd and popd entries
+alias  pud='pushd'
+alias  pod='popd'
