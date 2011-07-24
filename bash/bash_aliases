@@ -79,5 +79,8 @@ alias edt='emacs -nw'
 alias sourceInit='. ~/.bashrc'
 alias sin='sourceInit'
 
+# SSH alias for VMW
+alias vmwgw='pkill -f vmwgw; ssh -fTN vmwgw'
+
 # Also add an entry for our local BIN
 export PATH=$PATH:~/bin
