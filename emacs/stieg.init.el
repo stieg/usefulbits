@@ -16,55 +16,53 @@
 ;;;;
 ;;;; Yasnippet
 ;;;;
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-0.6.1c")
+(add-to-list 'load-path "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/plugins/yasnippet-0.6.1c/snippets")
-(setq yas/root-directory '("~/emacs.d/plugins/yasnippet-0.6.1c/snippets"))
+(yas/load-directory "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
+(setq yas/root-directory '("~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1"))
 
 ;;;;
 ;;;; Git
 ;;;;
-(add-to-list 'load-path "~/.emacs.d/plugins/git")
-(require 'git) ;; our git control system.
-(require 'git-blame) ;; our git control system.
+;(add-to-list 'load-path "~/.emacs.d/plugins/git")
+;(require 'git) ;; our git control system.
+;(require 'git-blame) ;; our git control system.
 
 ;;;;
 ;;;; ERC (IRC for emacs)
 ;;;;
-(require 'erc) ; ERC is included with emacs starting 22.3
+;(require 'erc) ; ERC is included with emacs starting 22.3
 ; freenode
-(global-set-key (kbd "M-s e f") (lambda () (interactive)
-                                (erc :server "irc.freenode.net"
-                                     :port "6667"
-                                     :nick "stieg"
-                                     :full-name "Andrew Stiegmann (andrew.stiegmann [at] gmail [dot] com")))
-(setq erc-autojoin-channels-alist '("freenode.net" "#perfkit"))
+;(global-set-key (kbd "M-s e f") (lambda () (interactive)
+ ;                               (erc :server "irc.freenode.net"
+ ;                                    :port "6667"
+ ;                                    :nick "stieg"
+ ;                                    :full-name "Andrew Stiegmann (andrew.stiegmann [at] gmail [dot] com")))
+;(setq erc-autojoin-channels-alist '("freenode.net" "#perfkit"))
 ; /freenode
 
 (setq erc-interpret-mirc-color t)
 
-
 ;; Clear out whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-
 ;; Custom settings
-(defun my-c-settings ()
+(defun stieg-c-settings ()
   (setq c-basic-offset 3)
   (setq indent-tabs-mode nil))
 
-(defun my-perl-settings ()
+(defun stieg-perl-settings ()
   (setq perl-indent-level 3))
 
 ;; Set the standards for Makefiles
-(defun my-makefile-settings ()
+(defun stieg-makefile-settings ()
   (setq-default tab-width 8)
   (setq-default tab-stop-list '(8 16 24 32 40)))
 
-(add-hook 'c-mode-hook 'my-c-settings)
-(add-hook 'perl-mode-hook 'my-perl-settings)
-(add-hook 'makefile-mode-hook 'my-makefile-settings)
+(add-hook 'c-mode-hook 'stieg-c-settings)
+(add-hook 'perl-mode-hook 'stieg-perl-settings)
+(add-hook 'makefile-mode-hook 'stieg-makefile-settings)
 
 ;;
 ;; Special key bindings..
