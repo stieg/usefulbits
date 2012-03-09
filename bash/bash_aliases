@@ -81,9 +81,10 @@ alias sin='sourceInit'
 
 # SSH alias for VMW
 alias vmwgw='pkill -f vmwgw; ssh -fTN vmwgw'
-
-# Also add an entry for our local BIN
-export PATH=$PATH:~/bin
+alias vmw1-lb-ns='ssh -t vmw1-lb screen'
+alias vmw2-lb-ns='ssh -t vmw2-lb screen'
+alias vmw1-lb-sra='ssh -t vmw1-lb screen -rd'
+alias vmw2-lb-sra='ssh -t vmw2-lb screen -rd'
 
 # Pushd and popd entries
 alias  pud='pushd'

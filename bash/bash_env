@@ -1,16 +1,15 @@
 # Bash ENV settings
 
 chkExists () {
-   which $1 2>&1 >/dev/null
+   which $1 &>/dev/null
 }
 
 if chkExists emacs; then
     EDITOR='emacs -nw'
-else if chkExists nano; then
+elif chkExists nano; then
     EDITOR='nano'
 else
     EDITOR='vim'
-fi
 fi
 
 # Setup a local bin directory
