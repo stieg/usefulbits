@@ -58,22 +58,14 @@ fi
 
 # Editor
 alias edt='emacs -nw'
-
-# Check for the EMACS setting before setting color.  If in emacs, we don't
-# want the color, so we disable it here.
-#if [ -z $EMACS ]; then
-    alias    ls='ls --color=auto'
-    alias    ll='ls -lgF --color=auto'
-    alias    la='ls -A --color=auto'
-    alias     l='ls -CF --color=auto'
-    alias  grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-#else
-#    for i in ls {,f,e}grep; do
-#        unalias $i;
-#    done
-#fi
+alias    ls='ls --color=auto'
+alias    ll='ls -lgF --color=auto'
+alias    la='ls -A --color=auto'
+alias     l='ls -CF --color=auto'
+alias  grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias $i;
 
 # Add an aliases to resource the init
 alias sourceInit='. ~/.bashrc'
@@ -81,11 +73,15 @@ alias sin='sourceInit'
 
 # SSH alias for VMW
 alias vmwgw='pkill -f vmwgw; ssh -fTN vmwgw'
-alias vmw1-lb-ns='ssh -t vmw1-lb screen'
-alias vmw2-lb-ns='ssh -t vmw2-lb screen'
-alias vmw1-lb-sra='ssh -t vmw1-lb screen -rd'
-alias vmw2-lb-sra='ssh -t vmw2-lb screen -rd'
+alias ns-vmw1-lb='ssh -t vmw1-lb screen'
+alias ns-vmw2-lb='ssh -t vmw2-lb screen'
+alias ras-vmw1-lb='ssh -t vmw1-lb screen -rd'
+alias ras-vmw2-lb='ssh -t vmw2-lb screen -rd'
 
-# Pushd and popd entries
-alias  pud='pushd'
-alias  pod='popd'
+alias ns-vmw1='ssh -t vmw1 screen'
+alias ns-vmw2='ssh -t vmw2 screen'
+alias ras-vmw1='ssh -t vmw1 screen -rd'
+alias ras-vmw2='ssh -t vmw2 screen -rd'
+
+# SSH Aliases for Katsu
+alias katsugw='ssh -fTN katsu'
