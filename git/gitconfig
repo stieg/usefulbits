@@ -5,13 +5,12 @@
   co      = checkout
   di      = diff
   lo      = log -p
-  co      = checkout
   conb    = checkout -b
   fe      = fetch
 
 [user]
   name=Andrew Stiegmann (stieg)
-  email=andrew.stiegmann@gmail.com
+  email=andrew.stiegmann@flixster-inc.com
 
 [core]
   excludesfile=~/.gitignore
@@ -20,3 +19,5 @@
 	status = auto
 	branch = auto
 	diff = auto
+[push]
+	default = simple

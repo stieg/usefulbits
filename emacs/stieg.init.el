@@ -16,11 +16,11 @@
 ;;;;
 ;;;; Yasnippet
 ;;;;
-(add-to-list 'load-path "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
-(require 'yasnippet) ;; not yasnippet-bundle
-(yas/initialize)
-(yas/load-directory "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
-(setq yas/root-directory '("~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1"))
+;(add-to-list 'load-path "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
+;(require 'yasnippet) ;; not yasnippet-bundle
+;(yas/initialize)
+;(yas/load-directory "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
+;(setq yas/root-directory '("~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1"))
 
 ;;;;
 ;;;; Git
@@ -41,6 +41,14 @@
  ;                                    :full-name "Andrew Stiegmann (andrew.stiegmann [at] gmail [dot] com")))
 ;(setq erc-autojoin-channels-alist '("freenode.net" "#perfkit"))
 ; /freenode
+
+; cscope support as provided by Bill Carpenter
+(add-to-list 'load-path "~/Devel/usefulbits/emacs/plugins")
+(require 'cscope)
+
+;; emacs cscope plugin as provided by the cscope package.
+;(add-to-list 'load-path "/usr/share/cscope")
+;(require 'xcscope)
 
 (setq erc-interpret-mirc-color t)
 
@@ -107,34 +115,35 @@
 ;; Mode Options
 ;; ============
 
-(autoload 'c++-mode  "cc-mode" "C++ Editing Mode" t)
-(autoload 'c-mode    "cc-mode" "C Editing Mode"   t)
-(autoload 'objc-mode "cc-mode" "Objective C Editing Mode" t)
-(autoload 'text-mode "indented-text-mode" "Indented Text Editing Mode" t)
-(autoload 'xrdb-mode "xrdb-mode" "Mode for editing X resource files" t)
-(autoload 'ps-mode "ps-mode" "Major mode for editing PostScript" t)
-(setq auto-mode-alist
-      (append '(
-      ("\\.C$"              . c++-mode)
-      ("\\.cc$"             . c++-mode)
-      ("\\.c$"              . c-mode)
-      ("\\.h$"              . c-mode)
-      ("\\.i$"              . c++-mode)
-      ("\\.ii$"             . c++-mode)
-      ("\\.m$"              . objc-mode)
-      ("\\.pl$"             . perl-mode)
-      ("\\.sql$"            . c-mode)
-      ("\\.(ba)?sh$"        . shell-script-mode)
-      ("\\.spec$"           . shell-script-mode)
-      ("\\.mak.?$"          . makefile-mode)
-      ("\\.make$"           . makefile-mode)
-      ("\\.mk$"             . makefile-mode)
-      ("\\.GNU$"            . makefile-mode)
-      ("makefile$"          . makefile-mode)
-      ("Imakefile$"         . makefile-mode)
-      ("\\.Xdefaults$"      . xrdb-mode)
-      ("\\.Xenvironment$"   . xrdb-mode)
-      ("\\.Xresources$"     . xrdb-mode)
-      ("*.\\.ad$"           . xrdb-mode)
-      ("\\.[eE]?[pP][sS]$"  . ps-mode)
-      ) auto-mode-alist))
+;(autoload 'c++-mode  "cc-mode" "C++ Editing Mode" t)
+;(autoload 'c-mode    "cc-mode" "C Editing Mode"   t)
+;(autoload 'objc-mode "cc-mode" "Objective C Editing Mode" t)
+;(autoload 'text-mode "indented-text-mode" "Indented Text Editing Mode" t)
+;(autoload 'xrdb-mode "xrdb-mode" "Mode for editing X resource files" t)
+;(autoload 'ps-mode "ps-mode" "Major mode for editing PostScript" t)
+;(setq auto-mode-alist
+;      (append '(
+;      ("\\.C$"              . c++-mode)
+;      ("\\.cc$"             . c++-mode)
+;      ("\\.c$"              . c-mode)
+;      ("\\.h$"              . c-mode)
+;      ("\\.i$"              . c++-mode)
+;      ("\\.ii$"             . c++-mode)
+;      ("\\.m$"              . objc-mode)
+;      ("\\.pl$"             . perl-mode)
+;      ("\\.sql$"            . c-mode)
+;      ("\\.(ba)?sh$"        . shell-script-mode)
+;      ("\\.spec$"           . shell-script-mode)
+;      ("\\.mak.?$"          . makefile-mode)
+;      ("\\.make$"           . makefile-mode)
+;      ("\\.mk$"             . makefile-mode)
+;      ("\\.GNU$"            . makefile-mode)
+;      ("makefile$"          . makefile-mode)
+;      ("Imakefile$"         . makefile-mode)
+;      ("\\.Xdefaults$"      . xrdb-mode)
+;      ("\\.Xenvironment$"   . xrdb-mode)
+;      ("\\.Xresources$"     . xrdb-mode)
+;      ("*.\\.ad$"           . xrdb-mode)
+;      ("\\.[eE]?[pP][sS]$"  . ps-mode)
+;      ) auto-mode-alist))
+;

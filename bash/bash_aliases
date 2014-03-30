@@ -57,7 +57,7 @@ if which p4 &>/dev/null; then
 fi
 
 # Editor
-alias edt='emacs -nw'
+alias   edt='emacs -nw'
 alias    ls='ls --color=auto'
 alias    ll='ls -lgF --color=auto'
 alias    la='ls -A --color=auto'
@@ -70,17 +70,15 @@ alias egrep='egrep --color=auto'
 alias sourceInit='. ~/.bashrc'
 alias sin='sourceInit'
 
-# SSH alias for VMW
-alias vmwgw='pkill -f vmwgw; ssh -fTN vmwgw'
-alias ns-vmw1-lb='ssh -t vmw1-lb screen'
-alias ns-vmw2-lb='ssh -t vmw2-lb screen'
-alias ras-vmw1-lb='ssh -t vmw1-lb screen -rd'
-alias ras-vmw2-lb='ssh -t vmw2-lb screen -rd'
-
-alias ns-vmw1='ssh -t vmw1 screen'
-alias ns-vmw2='ssh -t vmw2 screen'
-alias ras-vmw1='ssh -t vmw1 screen -rd'
-alias ras-vmw2='ssh -t vmw2 screen -rd'
+# Footprint alias for seeing sizes quickly.
+alias fp='du --max-depth=0'
 
 # SSH Aliases for Katsu
-alias katsugw='ssh -fTN katsu'
+alias katsugw='ssh -fTN katsu.triplehelix.org'
+alias ras-katsu='ssh -t katsu.triplehelix.org screen -Rd'
+
+# local
+alias ras-lucifer='ssh -t lucifer'
+
+# Useful Aliases for Size
+alias space='du --si --max-depth=1'

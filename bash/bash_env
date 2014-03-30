@@ -11,6 +11,12 @@ elif chkExists nano; then
 else
     EDITOR='vim'
 fi
+export EDITOR
 
 # Setup a local bin directory
-export PATH="$PATH:$HOME/bin"
+# Put it first so it overrides other apps if necessary.
+export PATH="$HOME/bin:$PATH"
+
+# CVS options
+export CVSROOT="$HOME/Devel/cvs"
+export CVSEDITOR="$EDITOR"
