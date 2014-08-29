@@ -58,17 +58,17 @@ fi
 
 # Editor
 alias   edt='emacs -nw'
-alias    ls='ls --color=auto'
-alias    ll='ls -lgF --color=auto'
-alias    la='ls -A --color=auto'
-alias     l='ls -CF --color=auto'
+#alias    ls='ls --color=auto'
+alias    ll='ls -lgF'
+alias    la='ls -A'
+alias     l='ls -CF'
 alias  grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Add an aliases to resource the init
 alias sourceInit='. ~/.bashrc'
-alias sin='sourceInit'
+# alias sin='sourceInit'
 
 # Footprint alias for seeing sizes quickly.
 alias fp='du --max-depth=0'
@@ -82,3 +82,6 @@ alias ras-lucifer='ssh -t lucifer'
 
 # Useful Aliases for Size
 alias space='du --si --max-depth=1'
+
+# Mac Aliases
+alias ll='ls -l'
