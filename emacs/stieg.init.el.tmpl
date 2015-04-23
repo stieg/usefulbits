@@ -16,11 +16,11 @@
 ;;;;
 ;;;; Yasnippet
 ;;;;
-(add-to-list 'load-path "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
+(add-to-list 'load-path "@@EMACS_DIR@@/plugins/yasnippet-0.6.1c")
 (require 'yasnippet) ;; not yasnippet-bundle
 (yas/initialize)
-(yas/load-directory "~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1c")
-(setq yas/root-directory '("~/Devel/usefulbits/emacs/plugins/yasnippet-0.6.1"))
+(yas/load-directory "@@EMACS_DIR@@/plugins/yasnippet-0.6.1c")
+(setq yas/root-directory '("@@EMACS_DIR@@/plugins/yasnippet-0.6.1"))
 ;(yas-global-mode 1)
 
 ;;;;
@@ -44,7 +44,7 @@
 ; /freenode
 
 ; cscope support as provided by Bill Carpenter
-(add-to-list 'load-path "~/Devel/usefulbits/emacs/plugins")
+(add-to-list 'load-path "@@EMACS_DIR@@/plugins")
 (require 'cscope)
 
 ;; emacs cscope plugin as provided by the cscope package.
