@@ -43,7 +43,7 @@
 ; /freenode
 
 ; cscope support as provided by Bill Carpenter
-(add-to-list 'load-path "~/Devel/usefulbits/emacs/plugins")
+(add-to-list 'load-path "~/Devel/stieg/usefulbits/emacs/plugins")
 (require 'cscope)
 
 ;; emacs cscope plugin as provided by the cscope package.

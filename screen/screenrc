@@ -3,14 +3,7 @@ chdir
 autodetach on
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+defscrollback 10000
 
-screen -t Htop    0 /usr/bin/htop
-screen -t Emacs   1 /usr/bin/emacs -nw
-screen -t Term   2
-screen -t Tomcat  3
-chdir Devel/flixster
-screen -t Flixster 4
-chdir ../locker
-screen -t Locker 4
-chdir ../rt
-screen -t RottenTomatoes 4
+screen -t System  0
+screen -t Term    1
