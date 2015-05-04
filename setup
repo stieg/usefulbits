@@ -1,50 +1,43 @@
 #!/bin/bash
 set -x
+set -e
 
 # Get the full path to this script
-scriptPath=$(dirname $0)
-bashDir=$scriptPath/bash
-emacsDir=$scriptPath/emacs
-gitDir=$scriptPath/git
-screenDir=$scriptPath/screen
+SCRIPT_DIRNAME="$(cd $(dirname "$0") && pwd -P)"
+BASH_DIR=$SCRIPT_DIRNAME/bash
+EMACS_DIR=$SCRIPT_DIRNAME/emacs
+GIT_DIR=$SCRIPT_DIRNAME/git
+SCREEN_DIR=$SCRIPT_DIRNAME/screen
 
 # bash
-bashFiles=`ls $bashDir`
+bashFiles=`ls $BASH_DIR`
 for i in $bashFiles; do
    grep -q "Stieg $i config" $HOME/.bashrc || \
 cat >> $HOME/.bashrc <<EOF
 
 # Stieg $i config...
-if [ -r $bashDir/$i ]; then
-   . $bashDir/$i
-fi
-
+[ -r $BASH_DIR/$i ] && source $BASH_DIR/$i
 EOF
 done
 
-# Git goodies
-gitFiles=`ls $gitDir`
-for i in $gitFiles; do
-    test -L "$HOME/.$i" || ln -svi $gitDir/$i "$HOME/.$i"
+# Screen & Git goodies
+for d in $GIT_DIR $SCREEN_DIR; do
+    for f in $(ls $d); do
+	test -L "$HOME/.$f" || ln -svi $d/$f "$HOME/.$f"
+    done
 done
 
 # Emacs
 destEmacsDir="$HOME/.emacs.d"
 mkdir -p $destEmacsDir
-test -L  "${destEmacsDir}/plugins" || ln -svi $emacsDir/plugins "${destEmacsDir}/plugins"
+test -L  "${destEmacsDir}/plugins" || ln -svi $EMACS_DIR/plugins "${destEmacsDir}/plugins"
 
 grep -q 'Stieg init.el settings' $HOME/.emacs.d/init.el || \
 cat >> $HOME/.emacs.d/init.el <<EOF
 
 ;; Stieg init.el settings
-(add-to-list 'load-path "~/dev/usefulbits/emacs")
+(add-to-list 'load-path "${EMACS_DIR}")
 (load "stieg.init.el") ;; Load up the init.el in the git file.
-
 EOF
 
-# Screen goodies
-screenFiles=`ls $screenDir`
-mkdir -p $screenDir
-for i in $screenFiles; do
-    test -L "$HOME/.$i" || ln -svi $screenDir/$i "$HOME/.$i"
-done
+sed -e "s|@@EMACS_DIR@@|$EMACS_DIR|g" <$EMACS_DIR/stieg.init.el.tmpl >$EMACS_DIR/stieg.init.el
