@@ -10,7 +10,7 @@
 
 [user]
   name=Andrew Stiegmann (stieg)
-  email=andrew.stiegmann@flixster-inc.com
+  email=andrew.stiegmann@gmail.com
 
 [core]
   excludesfile=~/.gitignore

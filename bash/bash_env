@@ -20,3 +20,6 @@ export PATH="$HOME/bin:$PATH"
 # CVS options
 # export CVSROOT="$HOME/Devel/cvs"
 export CVSEDITOR="$EDITOR"
+
+# Export our Devel directory
+export DEVEL=$HOME/Devel
