@@ -4,19 +4,17 @@ set -e
 
 # Get the full path to this script
 SCRIPT_DIRNAME="$(cd $(dirname "$0") && pwd -P)"
-BASH_DIR=$SCRIPT_DIRNAME/bash
 EMACS_DIR=$SCRIPT_DIRNAME/emacs
 GIT_DIR=$SCRIPT_DIRNAME/git
 SCREEN_DIR=$SCRIPT_DIRNAME/screen
 
-# bash
-bashFiles=`ls $BASH_DIR`
-for i in $bashFiles; do
-   grep -q "Stieg $i config" $HOME/.bashrc || \
-cat >> $HOME/.bashrc <<EOF
-
-# Stieg $i config...
-[ -r $BASH_DIR/$i ] && source $BASH_DIR/$i
+# shells
+ln -sf $SCRIPT_DIRNAME/.stiegrc $HOME/.stiegrc
+for f in .bashrc .zshrc; do
+    grep
+    cat >> $HOME/.bashrc <<EOF
+# Stieg's config
+. $HOME/.stiegrc
 EOF
 done
 

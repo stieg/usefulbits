@@ -6,4 +6,5 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)
 defscrollback 10000
 
 screen -t System  0
-screen -t Term    1
+screen -t Emacs   1 /usr/bin/emacs -nw
+screen -t Term    2

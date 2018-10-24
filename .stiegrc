@@ -1,0 +1,44 @@
+#
+# Hosts & maintains basic settings for sh/bash/zsh that I like.
+#
+
+chkExists () {
+    which $1 &>/dev/null
+}
+
+if chkExists emacs; then
+    EDITOR='emacs -nw'
+elif chkExists nano; then
+    EDITOR='nano'
+else
+    EDITOR='vim'
+fi
+export EDITOR
+
+# Setup a local bin directory
+# Put it first so it overrides other apps if necessary.
+export PATH="$HOME/bin:$PATH"
+
+# CVS options
+# export CVSROOT="$HOME/Devel/cvs"
+export CVSEDITOR="$EDITOR"
+
+# Export our Devel directory
+export DEVEL=$HOME/Devel
+
+# GOLANG Bits.
+export GOPATH=$DEVEL/golang
+
+
+# Aliases go below here
+
+# Footprint alias for seeing sizes quickly.
+alias fp='du --max-depth=0'
+
+# Useful Aliases for Size
+alias space='du --si --max-depth=1'
+
+# Docker Aliases
+alias docker-all-stop='docker ps -aq | xargs docker stop'
+alias docker-all-rm='docker ps -aq | xargs docker rm'
+alias docker-all-rmi='docker images -q | xargs docker rmi'
