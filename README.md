@@ -1,0 +1,1 @@
+Simple settings I find useful for my dev work.

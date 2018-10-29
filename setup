@@ -3,39 +3,21 @@ set -x
 set -e
 
 # Get the full path to this script
-SCRIPT_DIRNAME="$(cd $(dirname "$0") && pwd -P)"
-EMACS_DIR=$SCRIPT_DIRNAME/emacs
-GIT_DIR=$SCRIPT_DIRNAME/git
-SCREEN_DIR=$SCRIPT_DIRNAME/screen
+SCRIPT_DIRNAME=$(cd $(dirname "$0") && pwd -P)
 
-# shells
-ln -sf $SCRIPT_DIRNAME/.stiegrc $HOME/.stiegrc
-for f in .bashrc .zshrc; do
-    grep
-    cat >> $HOME/.bashrc <<EOF
+# Shells RC files should all source .stiegrc
+ln -fsv $SCRIPT_DIRNAME/.stiegrc $HOME/.stiegrc
+for f in $HOME/.{bashrc,zshrc}; do
+    grep -q .stiegrc $f && continue
+    cat >> $f <<EOF
 # Stieg's config
-. $HOME/.stiegrc
+. \$HOME/.stiegrc
 EOF
 done
 
-# Screen & Git goodies
-for d in $GIT_DIR $SCREEN_DIR; do
+# Link the other hidden files.
+for d in $SCRIPT_DIRNAME/{emacs,git,screen}; do
     for f in $(ls $d); do
-	test -L "$HOME/.$f" || ln -svi $d/$f "$HOME/.$f"
+	     test -L "$HOME/.$f" || ln -svi $d/$f "$HOME/.$f"
     done
 done
-
-# Emacs
-destEmacsDir="$HOME/.emacs.d"
-mkdir -p $destEmacsDir
-test -L  "${destEmacsDir}/plugins" || ln -svi $EMACS_DIR/plugins "${destEmacsDir}/plugins"
-
-grep -q 'Stieg init.el settings' $HOME/.emacs.d/init.el || \
-cat >> $HOME/.emacs.d/init.el <<EOF
-
-;; Stieg init.el settings
-(add-to-list 'load-path "${EMACS_DIR}")
-(load "stieg.init.el") ;; Load up the init.el in the git file.
-EOF
-
-sed -e "s|@@EMACS_DIR@@|$EMACS_DIR|g" <$EMACS_DIR/stieg.init.el.tmpl >$EMACS_DIR/stieg.init.el

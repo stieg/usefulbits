@@ -39,6 +39,7 @@ alias fp='du --max-depth=0'
 alias space='du --si --max-depth=1'
 
 # Docker Aliases
-alias docker-all-stop='docker ps -aq | xargs docker stop'
-alias docker-all-rm='docker ps -aq | xargs docker rm'
-alias docker-all-rmi='docker images -q | xargs docker rmi'
+alias docker='sudo docker'
+alias docker-all-stop='sudo docker ps -aq | xargs docker stop'
+alias docker-all-rm='sudo docker ps -aq | xargs docker rm'
+alias docker-all-rmi='sudo docker images -q | xargs docker rmi'
