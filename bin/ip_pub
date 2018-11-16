@@ -1,0 +1,7 @@
+#!/bin/bash
+
+##
+## Figures out and prints your public IP address
+##
+
+exec echo $(curl -s ipecho.net/plain)

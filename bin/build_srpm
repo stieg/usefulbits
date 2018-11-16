@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -e
+
+parse_spec_value()
+{
+    rpmspec -P "$1" | grep "$2" | head -n1| \
+        while read key value; do echo $value; done
+}
+
+TMPL_SPEC_FILE=$1
+VERSION=$2
+
+TMP_DIR=$(mktemp -dt build_srpm_XXXXX)
+TMP_SPEC="${TMP_DIR}/spec"
+sed -e "s,@@VERSION@@,${VERSION},g" "$TMPL_SPEC_FILE" >"$TMP_SPEC"
+
+SPEC_FILE_NAME=$(parse_spec_value "$TMP_SPEC" "Name:")
+SPEC_FILE="${TMP_DIR}/${SPEC_FILE_NAME}.spec"
+mv "$TMP_SPEC" "$SPEC_FILE"
+
+SOURCE_URL=$(parse_spec_value "$SPEC_FILE" "Source:")
+SOURCE_FILE="${TMP_DIR}/$(basename $SOURCE_URL)"
+
+curl -L "$SOURCE_URL" --output "$SOURCE_FILE"
+
+exec mock --spec "$SPEC_FILE" --sources "$SOURCE_FILE" \
+     --resultdir="." --buildsrpm

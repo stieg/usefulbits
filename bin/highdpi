@@ -1,0 +1,29 @@
+#!/bin/bash
+
+case "$1" in
+    0|false)
+	INTERFACE_SCALING_FACTOR=1
+	TEXT_SCALE_FACTOR=0.9
+	XRANDR_SCALE_FACTOR=1
+	;;
+    1|true)
+	INTERFACE_SCALING_FACTOR=2
+	TEXT_SCALE_FACTOR=1.4
+	XRANDR_SCALE_FACTOR=1.25
+	;;
+    *)
+	echo "\"$!\" is not valid. Must be \"true\" or \"false\"" >&2
+	exit 1
+	;;
+esac
+
+# My text scaling factor way
+gsettings set org.gnome.desktop.interface text-scaling-factor $TEXT_SCALE_FACTOR
+
+# gsettings + xrandr way
+# https://wiki.archlinux.org/index.php/HiDPI
+
+#XRANDR_SCALE_ARG="${XRANDR_SCALE_FACTOR}x${XRANDR_SCALE_FACTOR}"
+#
+#gsettings set org.gnome.desktop.interface scaling-factor 2
+#xrandr --output DP2 --scale $XRANDR_SCALE_ARG
