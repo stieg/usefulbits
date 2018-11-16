@@ -53,12 +53,12 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
-(setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil :indentSize 2 :indentStyle 2))
+;;(setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil :indentSize 2 :indentStyle 2))
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
 ;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
+;;(add-hook 'before-save-hook 'tide-format-before-save)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 ;; Typescript TSX Settings
@@ -70,13 +70,6 @@
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 (flycheck-add-mode 'typescript-tslint 'web-mode)
-
-
-;; custom-set-variables was added by Custom.
-;; If you edit it by hand, you could mess it up, so be careful.
-;; Your init file should contain only one such instance.
-;; If there is more than one, they won't work right.
-(custom-set-variables '(inhibit-startup-screen t))
 
 ;; Clear out whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -95,10 +88,34 @@
 ;; If you edit it by hand, you could mess it up, so be careful.
 ;; Your init file should contain only one such instance.
 ;; If there is more than one, they won't work right.
-(custom-set-variables '(inhibit-startup-screen t))
 
 ;; Clear out whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Fix the annoying yes-or-no to be y-or-n
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; custom-set-variables was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
+ '(js-indent-level 2)
+ '(package-selected-packages
+   (quote
+    (tide web-mode use-package typescript-mode s flycheck company)))
+ '(standard-indent 2)
+ '(typescript-indent-level 2)
+ '(web-mode-code-indent-offset 2)
+ '(web-mode-css-indent-offset 2))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
