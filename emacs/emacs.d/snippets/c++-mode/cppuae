@@ -1,5 +1,0 @@
-#name: cppuae( ... )
-#key: cppuae
-# --
-CPPUNIT_ASSERT_EQUAL(${1:expected}, ${2:actual});
-$0
