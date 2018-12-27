@@ -29,11 +29,9 @@ export DEVEL=$HOME/Devel
 # GOLANG Bits.
 export GOPATH=$DEVEL/golang
 
-
 # Aliases go below here
+## Useful Aliases for Size
+alias du-shallow='du --si --max-depth=1'
 
-# Footprint alias for seeing sizes quickly.
-alias fp='du --max-depth=0'
-
-# Useful Aliases for Size
-alias space='du --si --max-depth=1'
+## Git aliases
+alias git-rm-merged='git br -d $(git br --merged | grep -v \*)'
