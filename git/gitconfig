@@ -19,5 +19,11 @@
 	status = auto
 	branch = auto
 	diff = auto
+
 [push]
 	default = simple
+
+[includeIf "gitdir:~/Devel/airfordable/"]
+  path = ~/Devel/airfordable/.gitconfig
+[pull]
+	rebase = false
