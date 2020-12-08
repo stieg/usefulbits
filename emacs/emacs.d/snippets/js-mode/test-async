@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: tesa
+# name: test-async
+# --
+test('${1:Test Name}', async () => {
+  $0
+});

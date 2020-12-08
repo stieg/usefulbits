@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: aftaa
+# name: after-all-async
+# --
+afterAll(async () => {
+  $0
+});

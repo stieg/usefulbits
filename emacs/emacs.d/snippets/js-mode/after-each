@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: afte
+# name: after-each
+# --
+afterEach(() => {
+  $0
+});

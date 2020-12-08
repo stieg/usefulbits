@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: esle
+# name: eslint-enable
+# --
+/* eslint-enable $0 */

@@ -16,7 +16,8 @@
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (yasnippet-snippets yasnippet tide web-mode use-package typescript-mode flycheck company)))
+    (xclip js2-refactor js2-mode yaml-mode flycheck-rust rust-mode rustic cargo yasnippet-snippets yasnippet tide web-mode use-package javascript-mode flycheck company)))
+ '(select-enable-clipboard t)
  '(standard-indent 2)
  '(typescript-indent-level 2)
  '(web-mode-code-indent-offset 2)
@@ -38,6 +39,15 @@
 (setq-default tab-stop-list '(3 6 9 12 15))
 (setq-default tab-width 3)
 
+;; Emacs Backup file settings
+;; From https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
+(setq-default backup-directory-alist `(("." . "~/.emacs_backups")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
+
 ;;
 ;; Global key bindings..
 ;;
@@ -47,6 +57,7 @@
 (global-set-key (kbd "M-s g") 'find-grep)
 (global-set-key (kbd "M-s k") 'kill-some-buffers)
 (global-set-key (kbd "M-s r") 'rgrep)
+(global-set-key (kbd "M-s s") 'sort-lines)
 
 ;; Add Melpa to the list of places we get our packages from.
 (require 'package)
@@ -62,8 +73,19 @@
   (setq js-indent-level 2))
 (add-hook 'json-mode-hook 'stieg-json-settings)
 
+;; Javascript Settings
+(defun setup-js-mode () "Set's up the Javascript major mode"
+  (interactive)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (company-mode +1)
+  (yas-minor-mode)
+  )
+(add-hook 'js-mode-hook #'setup-js-mode)
+
+
 ;; Typescript Settings
-(defun setup-tide-mode ()
+(defun setup-tide-mode () "Set's up TIDE major mode"
   (interactive)
   (tide-setup)
   (flycheck-mode +1)
@@ -72,6 +94,8 @@
   (tide-hl-identifier-mode +1)
   (company-mode +1)
   (yas-minor-mode)
+  ;; (set (make-local-variable 'company-backends)
+  ;;      '((company-tide company-yasnippet)))
   )
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
@@ -126,3 +150,6 @@
 ;;   (setq-default tab-width 8)
 ;;   (setq-default tab-stop-list '(8 16 24 32 40)))
 ;; (add-hook 'makefile-mode-hook 'stieg-makefile-settings)
+
+;;(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))

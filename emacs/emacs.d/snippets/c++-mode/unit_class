@@ -1,0 +1,12 @@
+#name : unit_class ... { ... }
+# --
+class ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`} : public CppUnit::TestFixture
+{
+        CPPUNIT_TEST_SUITE( LoggerFileWriterTest );
+        /* CPPUNIT_TEST( FOO ); */
+        CPPUNIT_TEST_SUITE_END();
+
+public:
+        void setUp();
+        void tearDown();
+};

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: ita
+# name: it-async
+# --
+it('${1:Test Name}', async () => {
+  $0
+});
