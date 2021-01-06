@@ -18,9 +18,8 @@ else
 fi
 export EDITOR
 
-# Setup a local bin directory
 # Put it first so it overrides other apps if necessary.
-export PATH="$HOME/.bin:$PATH:$HOME/.local/bin"
+export PATH="$USEFUL_BITS_DIR/bin:$HOME/.local/bin:$PATH"
 
 # CVS options
 # export CVSROOT="$HOME/Devel/cvs"
@@ -30,15 +29,19 @@ export CVSEDITOR="$EDITOR"
 export DEVEL=$HOME/Devel
 
 # GOLANG Bits.
-export GOPATH=$DEVEL/golang
+export GOPATH=$DEVEL/Go
 
 # Aliases go below here
 ## Useful Aliases for Size
 alias du.='du --si --max-depth=1'
-alias ll='ls -l'
-
-## Git aliases
 alias git-rm-merged='git br -d $(git branch --merged | grep -v "*")'
+alias ll='ls -l'
+alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d \"'
+alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
+alias urlencode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
+
+## Network related
+alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d \"'
 
 mp4_to_gif()
 {
@@ -46,13 +49,6 @@ mp4_to_gif()
     ffmpeg -y -i "$1" -vf palettegen "$palletFile";
     ffmpeg -y -i "$1" -i "$palletFile" -filter_complex paletteuse -r 10 "$1.gif"
 }
-
-## URL Encode / Decode
-alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
-alias urlencode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
-
-## Network related
-alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d \"'
 
 ix_paste()
 {

@@ -3,7 +3,7 @@ set -x
 set -e
 
 # Get the full path to this script
-SCRIPT_DIRNAME=$(cd $(dirname "$0") && pwd -P)
+SCRIPT_DIRNAME=$"$(dirname "$(readlink -f "$0")")"
 
 # Shells RC files should all source .stiegrc
 ln -fsv $SCRIPT_DIRNAME/.stiegrc $HOME/.stiegrc
