@@ -1,16 +1,21 @@
 [alias]
-  st      = status
-  cm      = commit
-  br      = branch
-  co      = checkout
-  di      = diff
-  lo      = log -p
-  conb    = checkout -b
-  fe      = fetch
+  br = branch
+  cm = commit
+  co = checkout
+  conb = checkout -b
+  cos = checkout --recurse-submodules
+  di = diff
+  fe = fetch
+  lo = log -p
+  sdiff = git diff && git submodule foreach 'git diff'
+  spush = push --recurse-submodules=on-demand
+  st = status
+  supdate = submodule update --remote --merge
 
 [user]
   name=Andrew Stiegmann (stieg)
   email=andrew.stiegmann@gmail.com
+#  email=astiegmann@tesla.com
 
 [core]
   excludesfile=~/.gitignore
@@ -19,5 +24,15 @@
 	status = auto
 	branch = auto
 	diff = auto
+
 [push]
 	default = simple
+
+[includeIf "gitdir/i:~/Devel/Go/src/stash.teslamotors.com/"]
+  path = ~/Devel/Tesla/.gitconfig
+
+[includeIf "gitdir/i:~/Devel/Tesla"]
+  path = ~/Devel/Tesla/.gitconfig
+
+[pull]
+	rebase = false
