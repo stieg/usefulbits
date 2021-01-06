@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+DDWRT_CACHE_DIR=~/.cache/dd-wrt
+SSH_ROUTER_ADDRESS=$1
+FIRMWARE_URL=$2
+
+mkdir -p "$DDWRT_CACHE_DIR"
+FILE_NAME="$(basename $FIRMWARE_URL)"
+LOCAL_FILE_PATH="${DDWRT_CACHE_DIR}/${FILE_NAME}"
+ROUTER_FILE_PATH="/tmp/${FILE_NAME}"
+
+curl "$FIRMWARE_URL" -o "$LOCAL_FILE_PATH"
+scp "${LOCAL_FILE_PATH}" "${SSH_ROUTER_ADDRESS}:${ROUTER_FILE_PATH}"
+ssh ${SSH_ROUTER_ADDRESS} "write /tmp/${FILE_NAME} linux && reboot"
