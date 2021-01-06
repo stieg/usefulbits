@@ -1,0 +1,3 @@
+#name : unit_test ... { ... }
+# --
+CPPUNIT_TEST( $1 );

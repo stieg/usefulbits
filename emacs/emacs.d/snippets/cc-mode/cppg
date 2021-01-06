@@ -1,0 +1,10 @@
+# name: cppg
+# key: cppg
+# --
+#include "cpp_guard.h"
+
+CPP_GUARD_BEGIN
+
+$0
+
+CPP_GUARD_END
