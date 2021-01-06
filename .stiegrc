@@ -40,7 +40,7 @@ alias ll='ls -l'
 ## Git aliases
 alias git-rm-merged='git br -d $(git branch --merged | grep -v "*")'
 
-mp4-to-gif()
+mp4_to_gif()
 {
     local palletFile="$(mktemp pallet_XXXXXXXX.png)"
     ffmpeg -y -i "$1" -vf palettegen "$palletFile";
@@ -54,7 +54,7 @@ alias urlencode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus
 ## Network related
 alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d \"'
 
-ix-paste()
+ix_paste()
 {
     curl -F 'f:1=<-' ix.io
 }
