@@ -16,7 +16,7 @@
  '(js-indent-level 2)
  '(package-selected-packages
    (quote
-    (markdown-mode xclip js2-refactor js2-mode yaml-mode flycheck-rust rust-mode rustic cargo yasnippet-snippets yasnippet tide web-mode use-package javascript-mode flycheck company)))
+    (flycheck-irony irony markdown-mode xclip js2-refactor js2-mode yaml-mode flycheck-rust rust-mode rustic cargo yasnippet-snippets yasnippet tide web-mode use-package javascript-mode flycheck company)))
  '(select-enable-clipboard t)
  '(standard-indent 2)
  '(typescript-indent-level 2)
@@ -130,7 +130,11 @@
    )
  )
 
-;; C Settings
+;; C/C++ Settings
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
 ;; (defun stieg-c-settings () "Sets up stieg's C settings"
 ;;   (setq c-basic-offset 3)
 ;;   (setq indent-tabs-mode nil)
