@@ -15,7 +15,7 @@
  '(inhibit-startup-screen t)
  '(js-indent-level 2)
  '(package-selected-packages
-   '(company-irony flycheck-irony irony markdown-mode xclip js2-refactor js2-mode yaml-mode flycheck-rust rust-mode rustic cargo yasnippet-snippets yasnippet tide web-mode use-package javascript-mode flycheck company))
+   '(simpleclip company-irony flycheck-irony irony markdown-mode xclip js2-refactor js2-mode yaml-mode flycheck-rust rust-mode rustic cargo yasnippet-snippets yasnippet tide web-mode use-package javascript-mode flycheck company))
  '(safe-local-variable-values '((setq tab-width 4) (indent-tabs-mode nil) (tab-width 4)))
  '(select-enable-clipboard t)
  '(standard-indent 2)
@@ -130,10 +130,23 @@
    )
  )
 
-;; C/C++ Settings
-(add-hook 'c++-mode-hook 'irony-mode)
+;; C Settings
+(add-hook 'c-mode-hook 'company-mode)
 (add-hook 'c-mode-hook 'irony-mode)
+
+;; C++ Settings
+(add-hook 'c++-mode-hook 'irony-mode)
+
+;; Irony Settings
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+;; Company Settings
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+
+;; Simpleclip settings
+(require 'simpleclip)
+(simpleclip-mode 1)
 
 ;; (defun stieg-c-settings () "Sets up stieg's C settings"
 ;;   (setq c-basic-offset 3)
