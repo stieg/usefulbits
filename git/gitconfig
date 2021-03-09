@@ -1,15 +1,19 @@
 [alias]
   br = branch
   cm = commit
-  co = checkout
-  conb = checkout -b
+  co = checkout --recurse-submodules
+  conb = checkout --recurse-submodules -b
   cos = checkout --recurse-submodules
   di = diff
   fe = fetch
   lo = log -p
+  sco = submodule update --recursive
+  sdiff = !git diff && git submodule foreach 'git diff'
   sdiff = git diff && git submodule foreach 'git diff'
   spush = push --recurse-submodules=on-demand
+  spush = push --recurse-submodules=on-demand
   st = status
+  supdate = submodule update --remote --merge
   supdate = submodule update --remote --merge
 
 [user]
