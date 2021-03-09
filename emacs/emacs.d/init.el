@@ -29,10 +29,12 @@
  '(inhibit-startup-screen t)
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
-   '(clang-format+ clang-format simpleclip company-irony flycheck-irony irony markdown-mode xclip js2-refactor js2-mode yaml-mode flycheck-rust rust-mode rustic cargo yasnippet-snippets yasnippet tide web-mode use-package javascript-mode flycheck company))
+   '(protobuf-mode magit clang-format+ clang-format simpleclip company-irony flycheck-irony irony markdown-mode xclip js2-refactor js2-mode yaml-mode flycheck-rust rust-mode rustic cargo yasnippet-snippets yasnippet tide web-mode use-package javascript-mode flycheck company))
  '(rainbow-delimiters-max-face-count 10)
  '(safe-local-variable-values
-   '((c-set-style . "linux")
+   '((web-mode-html-indent-offset . 2)
+     (js-indent-level 2)
+     (c-set-style . "linux")
      (c-set-style . linux)
      (c-progress-interval . t)
      (setq tab-width 4)
@@ -40,6 +42,7 @@
      (tab-width 4)))
  '(select-enable-clipboard nil)
  '(standard-indent 4)
+ '(web-mode-code-indent-offset 2)
  '(xclip-select-enable-clipboard t))
 
 (custom-set-faces
