@@ -54,3 +54,19 @@ ix_paste()
 {
     curl -F 'f:1=<-' ix.io
 }
+
+stieg-dns-legacy()
+{
+    sudo systemctl disable --now systemd-resolved.service
+    sudo rm -f /etc/resolv.conf
+    sudo systemctl restart NetworkManager.service
+    echo "Done. Double check settings in /etc/nsswitch.conf"
+}
+
+stieg-dns-resolved()
+{
+    sudo systemctl enable --now systemd-resolved.service
+    sudo ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf
+    sudo systemctl restart NetworkManager.service
+    echo "Done. Double check settings in /etc/nsswitch.conf"
+}
